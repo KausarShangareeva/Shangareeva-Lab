@@ -47,11 +47,7 @@ export default function OrderForm({ selectedProduct, onSelectProduct }) {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Ошибка сервера");
       if (data.whatsappUrl) {
-        const a = document.createElement('a')
-        a.href = data.whatsappUrl
-        a.target = '_blank'
-        a.rel = 'noreferrer'
-        a.click()
+        window.location.href = data.whatsappUrl
       }
       setStatus("success");
       setForm({ name: "", phone: "" });
