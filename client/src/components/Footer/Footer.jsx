@@ -30,7 +30,7 @@ export default function Footer() {
             <p className={styles.tagline}>Маски, после которых не нужен крем</p>
             <div className={styles.socials}>
               {/* WhatsApp */}
-              <a href="#" className={styles.social} aria-label="WhatsApp">
+              <a href="https://wa.me/46728448929" target="_blank" rel="noreferrer" className={styles.social} aria-label="WhatsApp">
                 <svg
                   width="18"
                   height="18"
@@ -42,7 +42,7 @@ export default function Footer() {
                 </svg>
               </a>
               {/* Telegram */}
-              <a href="#" className={styles.social} aria-label="Telegram">
+              <a href="https://t.me/+46728448929" target="_blank" rel="noreferrer" className={styles.social} aria-label="Telegram">
                 <svg
                   width="18"
                   height="18"
