@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: hadiya-server
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 3001
+      - key: OWNER_WHATSAPP_NUMBER
+        value: 46728448929

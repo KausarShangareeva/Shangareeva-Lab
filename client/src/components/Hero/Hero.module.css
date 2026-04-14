@@ -1,0 +1,245 @@
+.hero {
+  background: var(--gradient-hero);
+  padding: var(--sp-16) var(--sp-6);
+  overflow: hidden;
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: var(--sp-16);
+}
+
+/* ── Image side ── */
+.imageWrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.imageBubble {
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: var(--color-primary-light);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  flex-shrink: 0;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.imageBubble:hover .image {
+  transform: scale(1.04);
+}
+
+.badge {
+  position: absolute;
+  top: 24px;
+  left: -10px;
+  background: var(--color-dark);
+  color: var(--color-white);
+  padding: var(--sp-2) var(--sp-5);
+  border-radius: var(--radius-full);
+  font-size: var(--font-sm);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  box-shadow: var(--shadow-sm);
+}
+
+.badge span {
+  color: var(--color-primary);
+}
+
+.floatTag {
+  position: absolute;
+  bottom: 32px;
+  right: -10px;
+  background: var(--color-white);
+  color: var(--color-text);
+  padding: var(--sp-3) var(--sp-5);
+  border-radius: var(--radius-full);
+  font-size: var(--font-sm);
+  font-weight: 500;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-border);
+}
+
+/* ── Copy side ── */
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-6);
+}
+
+.eyebrow {
+  font-size: var(--font-sm);
+  font-weight: 500;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.heading {
+  font-family: var(--font-serif);
+  font-size: var(--font-4xl);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--color-dark);
+}
+
+.heading em {
+  font-style: italic;
+  color: var(--color-primary);
+}
+
+.desc {
+  font-size: var(--font-lg);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  max-width: 420px;
+}
+
+.cta {
+  display: flex;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+}
+
+.btnPrimary {
+  background: var(--color-dark);
+  color: var(--color-white);
+  padding: 14px 32px;
+  border-radius: var(--radius-full);
+  font-size: var(--font-base);
+  font-weight: 600;
+  transition: var(--ease);
+  box-shadow: var(--shadow-sm);
+}
+
+.btnPrimary:hover {
+  background: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btnSecondary {
+  background: transparent;
+  color: var(--color-dark);
+  padding: 14px 32px;
+  border-radius: var(--radius-full);
+  font-size: var(--font-base);
+  font-weight: 500;
+  border: 1.5px solid var(--color-border);
+  transition: var(--ease);
+}
+
+.btnSecondary:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: var(--color-primary-light);
+}
+
+/* ── Stats ── */
+.stats {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-6);
+  padding-top: var(--sp-4);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.statNum {
+  font-family: var(--font-serif);
+  font-size: var(--font-2xl);
+  font-weight: 700;
+  color: var(--color-dark);
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.divider {
+  width: 1px;
+  height: 40px;
+  background: var(--color-border);
+}
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+  .inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .imageWrap {
+    order: -1;
+  }
+
+  .imageBubble {
+    width: 320px;
+    height: 320px;
+  }
+
+  .badge {
+    left: 10px;
+  }
+  .floatTag {
+    right: 10px;
+  }
+
+  .heading {
+    font-size: var(--font-3xl);
+  }
+
+  .desc {
+    max-width: 100%;
+  }
+
+  .cta {
+    justify-content: center;
+  }
+
+  .stats {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: var(--sp-10) var(--sp-4);
+  }
+  .imageBubble {
+    width: 260px;
+    height: 260px;
+  }
+  .heading {
+    font-size: var(--font-2xl);
+  }
+  .badge,
+  .floatTag {
+    display: none;
+  }
+}

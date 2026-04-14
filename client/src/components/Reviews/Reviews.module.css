@@ -1,0 +1,146 @@
+.section {
+  padding: var(--sp-20) var(--sp-6);
+  background: var(--color-bg-alt);
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: var(--sp-12);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.eyebrow {
+  font-size: var(--font-sm);
+  font-weight: 500;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: var(--font-3xl);
+  font-weight: 700;
+  color: var(--color-dark);
+}
+
+/* ── Grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--sp-5);
+}
+
+/* ── Card ── */
+.card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+  box-shadow: var(--shadow-sm);
+  transition: var(--ease);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.cardAccent {
+  background: var(--color-dark);
+  color: var(--color-white);
+}
+
+/* ── Stars ── */
+.stars {
+  display: flex;
+  gap: 2px;
+}
+
+.starFilled {
+  color: var(--color-star);
+  font-size: 1.1rem;
+}
+
+.starEmpty {
+  color: var(--color-border);
+  font-size: 1.1rem;
+}
+
+.cardAccent .starEmpty {
+  color: #555;
+}
+
+/* ── Text ── */
+.text {
+  font-size: var(--font-sm);
+  line-height: 1.75;
+  color: var(--color-text-muted);
+  flex: 1;
+  font-style: italic;
+}
+
+.cardAccent .text {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ── Author ── */
+.author {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.avatarAccent {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.authorName {
+  font-size: var(--font-sm);
+  font-weight: 600;
+  color: var(--color-dark);
+}
+
+.cardAccent .authorName {
+  color: var(--color-white);
+}
+
+.authorProduct {
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+}
+
+.cardAccent .authorProduct {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 768px) {
+  .section { padding: var(--sp-12) var(--sp-4); }
+  .title { font-size: var(--font-2xl); }
+  .grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+}
