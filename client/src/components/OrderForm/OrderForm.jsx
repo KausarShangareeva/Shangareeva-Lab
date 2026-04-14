@@ -38,7 +38,8 @@ export default function OrderForm({ selectedProduct, onSelectProduct }) {
     }
     setStatus("loading");
     try {
-      const res = await fetch("/api/order", {
+      const base = import.meta.env.VITE_API_URL || ''
+      const res = await fetch(`${base}/api/order`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ product: selectedProduct, ...form }),
