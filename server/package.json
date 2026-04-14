@@ -1,6 +1,7 @@
 {
   "name": "hadiya-server",
   "version": "1.0.0",
+  "license": "MIT",
   "type": "commonjs",
   "scripts": {
     "start": "node index.js",
