@@ -26,7 +26,7 @@ export default function Header() {
         <a href="#" className={styles.logo}>
           <span className={styles.logoIcon}>✦</span>
           <span className={styles.logoText}>
-            Shangareeva<span className={styles.logoAccent}> Lab</span>
+            Hadiya<span className={styles.logoAccent}>Lab</span>
           </span>
         </a>
 

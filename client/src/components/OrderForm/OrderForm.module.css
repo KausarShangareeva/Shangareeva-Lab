@@ -96,7 +96,15 @@
   flex-direction: column;
   gap: var(--sp-2);
   margin-bottom: var(--sp-5);
+  max-height: 260px;
+  overflow-y: auto;
+  padding-right: 4px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) transparent;
 }
+
+.picker::-webkit-scrollbar { width: 3px; }
+.picker::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 4px; }
 
 .pickerItem {
   display: flex;
@@ -110,6 +118,7 @@
   transition: var(--ease);
   text-align: left;
   width: 100%;
+  flex-shrink: 0;
 }
 
 .pickerItem:hover {
@@ -122,12 +131,17 @@
   background: var(--color-primary-light);
 }
 
-.pickerImg {
-  width: 48px;
-  height: 48px;
-  object-fit: cover;
-  border-radius: var(--radius-xs);
+.pickerBadge {
+  font-size: 1.35rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
+  box-shadow: var(--shadow-xs);
 }
 
 .pickerInfo {
@@ -135,12 +149,16 @@
   flex-direction: column;
   gap: 2px;
   flex: 1;
+  min-width: 0;
 }
 
 .pickerName {
   font-size: var(--font-sm);
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-dark);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .pickerDesc {
@@ -148,13 +166,21 @@
   color: var(--color-text-muted);
 }
 
+.pickerPrice {
+  font-size: var(--font-xs);
+  font-weight: 700;
+  color: var(--color-primary);
+  flex-shrink: 0;
+  margin-right: var(--sp-1);
+}
+
 .pickerCheck {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   border-radius: var(--radius-full);
   background: var(--color-primary);
   color: var(--color-white);
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 700;
   display: flex;
   align-items: center;

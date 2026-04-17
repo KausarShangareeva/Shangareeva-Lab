@@ -5,16 +5,14 @@ import ProductList from './components/ProductList/ProductList'
 import Reviews from './components/Reviews/Reviews'
 import OrderForm from './components/OrderForm/OrderForm'
 import Footer from './components/Footer/Footer'
+import ProductModal from './components/ProductModal/ProductModal'
 
 export default function App() {
   const [selectedProduct, setSelectedProduct] = useState('')
+  const [modalProduct, setModalProduct] = useState(null)
 
   function handleSelectProduct(name) {
     setSelectedProduct(name)
-    document.getElementById('order-form')?.scrollIntoView({ behavior: 'smooth' })
-  }
-
-  function scrollToOrder() {
     document.getElementById('order-form')?.scrollIntoView({ behavior: 'smooth' })
   }
 
@@ -26,10 +24,15 @@ export default function App() {
     <>
       <Header />
       <Hero onOrder={scrollToProducts} />
-      <ProductList onSelect={handleSelectProduct} />
+      <ProductList onOpenModal={setModalProduct} onSelect={handleSelectProduct} />
       <Reviews />
       <OrderForm selectedProduct={selectedProduct} onSelectProduct={setSelectedProduct} />
       <Footer />
+      <ProductModal
+        product={modalProduct}
+        onClose={() => setModalProduct(null)}
+        onOrder={handleSelectProduct}
+      />
     </>
   )
 }

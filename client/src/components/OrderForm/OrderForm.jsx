@@ -1,21 +1,12 @@
 import { useState } from "react";
 import styles from "./OrderForm.module.css";
+import { PRODUCTS } from "../ProductList/ProductList";
 
 const FEATURES = [
-  { icon: "🌿", text: "Натуральный состав без химии" },
+  { icon: "🌿", text: "Натуральный состав без агрессивной химии" },
   { icon: "📦", text: "Доставка по всей России" },
   { icon: "💬", text: "Поддержка в WhatsApp 24/7" },
   { icon: "✨", text: "Результат уже после первого применения" },
-];
-
-const PRODUCTS = [
-  { name: "Hydra Calm Mask", desc: "Для сухой кожи", image: "/hadiya_1.png" },
-  { name: "Pure Detox Mask", desc: "Для жирной кожи", image: "/hadiya_2.png" },
-  {
-    name: "Balance Glow Mask",
-    desc: "Для нормальной кожи",
-    image: "/hadiya_3.png",
-  },
 ];
 
 export default function OrderForm({ selectedProduct, onSelectProduct }) {
@@ -38,7 +29,7 @@ export default function OrderForm({ selectedProduct, onSelectProduct }) {
     }
     setStatus("loading");
     try {
-      const base = import.meta.env.VITE_API_URL || ''
+      const base = import.meta.env.VITE_API_URL || "";
       const res = await fetch(`${base}/api/order`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -47,7 +38,7 @@ export default function OrderForm({ selectedProduct, onSelectProduct }) {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Ошибка сервера");
       if (data.whatsappUrl) {
-        window.location.href = data.whatsappUrl
+        window.location.href = data.whatsappUrl;
       }
       setStatus("success");
       setForm({ name: "", phone: "" });
@@ -88,14 +79,17 @@ export default function OrderForm({ selectedProduct, onSelectProduct }) {
               <button
                 key={p.name}
                 type="button"
-                className={`${styles.pickerItem} ${selectedProduct === p.name ? styles.pickerItemActive : ""}`}
+                className={`${styles.pickerItem} ${
+                  selectedProduct === p.name ? styles.pickerItemActive : ""
+                }`}
                 onClick={() => onSelectProduct(p.name)}
               >
-                <img src={p.image} alt={p.name} className={styles.pickerImg} />
+                <span className={styles.pickerBadge}>{p.badge}</span>
                 <div className={styles.pickerInfo}>
                   <span className={styles.pickerName}>{p.name}</span>
-                  <span className={styles.pickerDesc}>{p.desc}</span>
+                  <span className={styles.pickerDesc}>{p.description}</span>
                 </div>
+                <span className={styles.pickerPrice}>{p.price}</span>
                 {selectedProduct === p.name && (
                   <span className={styles.pickerCheck}>✓</span>
                 )}
@@ -117,7 +111,7 @@ export default function OrderForm({ selectedProduct, onSelectProduct }) {
               />
             </label>
             <label className={styles.fieldLabel}>
-              Телефон
+              Телефон / WhatsApp
               <input
                 className={styles.input}
                 type="tel"
@@ -133,21 +127,15 @@ export default function OrderForm({ selectedProduct, onSelectProduct }) {
               type="submit"
               disabled={status === "loading"}
             >
-              {status === "loading"
-                ? "Отправка..."
-                : "📲 Заказать через WhatsApp"}
+              {status === "loading" ? "Отправка..." : "📲 Заказать через WhatsApp"}
             </button>
           </form>
 
           {status === "success" && (
-            <p className={styles.successMsg}>
-              ✓ Заявка отправлена! Проверьте WhatsApp.
-            </p>
+            <p className={styles.successMsg}>✓ Заявка отправлена! Проверьте WhatsApp.</p>
           )}
           {status === "error" && (
-            <p className={styles.errorMsg}>
-              Ошибка отправки. Попробуйте ещё раз.
-            </p>
+            <p className={styles.errorMsg}>Ошибка отправки. Попробуйте ещё раз.</p>
           )}
         </div>
       </div>
