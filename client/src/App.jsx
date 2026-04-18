@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { LanguageProvider } from './i18n/LanguageContext'
 import Header from './components/Header/Header'
 import Hero from './components/Hero/Hero'
 import ProductList from './components/ProductList/ProductList'
@@ -21,7 +22,7 @@ export default function App() {
   }
 
   return (
-    <>
+    <LanguageProvider>
       <Header />
       <Hero onOrder={scrollToProducts} />
       <ProductList onOpenModal={setModalProduct} onSelect={handleSelectProduct} />
@@ -33,6 +34,6 @@ export default function App() {
         onClose={() => setModalProduct(null)}
         onOrder={handleSelectProduct}
       />
-    </>
+    </LanguageProvider>
   )
 }

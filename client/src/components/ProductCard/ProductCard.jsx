@@ -1,6 +1,10 @@
 import styles from './ProductCard.module.css'
+import { useLanguage } from '../../i18n/LanguageContext'
 
 export default function ProductCard({ product, onOpenModal, onSelect }) {
+  const { t } = useLanguage()
+  const description = t.productDesc[product.descKey]
+
   return (
     <div
       className={styles.card}
@@ -15,11 +19,11 @@ export default function ProductCard({ product, onOpenModal, onSelect }) {
       </div>
 
       <div className={styles.body}>
-        <p className={styles.category}>{product.description}</p>
+        <p className={styles.category}>{description}</p>
         <h3 className={styles.name}>{product.name}</h3>
         {product.price && <p className={styles.price}>{product.price}</p>}
         <div className={styles.more}>
-          <span>Подробнее</span>
+          <span>{t.products.more}</span>
           <span className={styles.arrow}>→</span>
         </div>
       </div>

@@ -1,11 +1,12 @@
 import ProductCard from '../ProductCard/ProductCard'
 import styles from './ProductList.module.css'
+import { useLanguage } from '../../i18n/LanguageContext'
 
 export const PRODUCTS = [
   {
     id: 1,
+    descKey: 'hydraCalmDesc',
     name: 'HYDRA CALM',
-    description: 'Для сухой кожи',
     badge: '💧',
     image: '/hadiya_1.png',
     price: '2 900 ₽',
@@ -51,8 +52,8 @@ export const PRODUCTS = [
   },
   {
     id: 2,
+    descKey: 'detoxPureDesc',
     name: 'DETOX PURE',
-    description: 'Для жирной кожи',
     badge: '🖤',
     image: '/hadiya_2.png',
     price: '2 700 ₽',
@@ -98,8 +99,8 @@ export const PRODUCTS = [
   },
   {
     id: 3,
+    descKey: 'sosRepairDesc',
     name: 'SOS REPAIR',
-    description: 'Для проблемной кожи',
     badge: '🌿',
     image: '/hadiya_3.png',
     price: '2 800 ₽',
@@ -145,8 +146,8 @@ export const PRODUCTS = [
   },
   {
     id: 4,
+    descKey: 'sosClearProDesc',
     name: 'SOS CLEAR PRO',
-    description: 'При акне',
     badge: '🔥',
     image: '/hadiya_2.png',
     price: '3 200 ₽',
@@ -192,8 +193,8 @@ export const PRODUCTS = [
   },
   {
     id: 5,
+    descKey: 'glowRadianceDesc',
     name: 'GLOW RADIANCE',
-    description: 'Для тусклой кожи',
     badge: '✨',
     image: '/hadiya_1.png',
     price: '3 100 ₽',
@@ -240,22 +241,23 @@ export const PRODUCTS = [
 ]
 
 export default function ProductList({ onOpenModal, onSelect }) {
+  const { t } = useLanguage()
+  const p = t.products
+
   return (
     <section className={styles.section} id="products">
       <div className={styles.inner}>
         <div className={styles.heading}>
-          <p className={styles.eyebrow}>Наши продукты</p>
-          <h2 className={styles.title}>Выберите свою маску</h2>
-          <p className={styles.subtitle}>
-            Нажмите на карточку — узнайте всё о продукте и выберите подходящий вариант
-          </p>
+          <p className={styles.eyebrow}>{p.eyebrow}</p>
+          <h2 className={styles.title}>{p.title}</h2>
+          <p className={styles.subtitle}>{p.subtitle}</p>
         </div>
 
         <div className={styles.grid}>
-          {PRODUCTS.map((p) => (
+          {PRODUCTS.map((prod) => (
             <ProductCard
-              key={p.id}
-              product={p}
+              key={prod.id}
+              product={prod}
               onOpenModal={onOpenModal}
               onSelect={onSelect}
             />

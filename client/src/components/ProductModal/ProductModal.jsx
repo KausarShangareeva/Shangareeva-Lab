@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react'
 import styles from './ProductModal.module.css'
+import { useLanguage } from '../../i18n/LanguageContext'
 
 export default function ProductModal({ product, onClose, onOrder }) {
-  const [lang, setLang] = useState('ru')
+  const { lang: globalLang, t } = useLanguage()
+  const [lang, setLang] = useState(globalLang)
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
     if (!product) return
-    setLang('ru')
+    setLang(globalLang)
     const id = requestAnimationFrame(() => setVisible(true))
     document.body.style.overflow = 'hidden'
     const onKey = (e) => { if (e.key === 'Escape') handleClose() }
@@ -18,8 +20,13 @@ export default function ProductModal({ product, onClose, onOrder }) {
     }
   }, [product])
 
+  useEffect(() => {
+    setLang(globalLang)
+  }, [globalLang])
+
   function handleClose() {
     setVisible(false)
+    document.body.style.overflow = ''
     setTimeout(onClose, 300)
   }
 
@@ -42,7 +49,7 @@ export default function ProductModal({ product, onClose, onOrder }) {
         className={`${styles.modal} ${visible ? styles.modalVisible : ''}`}
         onClick={e => e.stopPropagation()}
       >
-        <button className={styles.close} onClick={handleClose} aria-label="Закрыть">✕</button>
+        <button className={styles.close} onClick={handleClose} aria-label={t.modal.close}>✕</button>
 
         <div className={styles.layout}>
           {/* Image column */}
@@ -84,8 +91,8 @@ export default function ProductModal({ product, onClose, onOrder }) {
               <div className={styles.section}>
                 <p className={styles.secLabel}>{c.targetsLabel}</p>
                 <div className={styles.pills}>
-                  {c.targets.map(t => (
-                    <span key={t} className={styles.pill}>{t}</span>
+                  {c.targets.map(target => (
+                    <span key={target} className={styles.pill}>{target}</span>
                   ))}
                 </div>
               </div>
@@ -119,7 +126,7 @@ export default function ProductModal({ product, onClose, onOrder }) {
             <p className={styles.note}>{product.note}</p>
 
             <button className={styles.btnOrder} onClick={handleOrder}>
-              Заказать — {product.price}
+              {t.modal.order} {product.price}
             </button>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import styles from './Reviews.module.css'
+import { useLanguage } from '../../i18n/LanguageContext'
 
 const REVIEWS = [
   {
@@ -50,26 +51,29 @@ function Stars({ count }) {
 }
 
 export default function Reviews() {
+  const { t } = useLanguage()
+  const r = t.reviews
+
   return (
     <section className={styles.section} id="reviews">
       <div className={styles.inner}>
         <div className={styles.heading}>
-          <p className={styles.eyebrow}>Отзывы</p>
-          <h2 className={styles.title}>Что говорят клиенты</h2>
+          <p className={styles.eyebrow}>{r.eyebrow}</p>
+          <h2 className={styles.title}>{r.title}</h2>
         </div>
 
         <div className={styles.grid}>
-          {REVIEWS.map((r) => (
-            <div key={r.id} className={`${styles.card} ${r.accent ? styles.cardAccent : ''}`}>
-              <Stars count={r.rating} />
-              <p className={styles.text}>«{r.text}»</p>
+          {REVIEWS.map((rev) => (
+            <div key={rev.id} className={`${styles.card} ${rev.accent ? styles.cardAccent : ''}`}>
+              <Stars count={rev.rating} />
+              <p className={styles.text}>«{rev.text}»</p>
               <div className={styles.author}>
-                <div className={`${styles.avatar} ${r.accent ? styles.avatarAccent : ''}`}>
-                  {r.avatar}
+                <div className={`${styles.avatar} ${rev.accent ? styles.avatarAccent : ''}`}>
+                  {rev.avatar}
                 </div>
                 <div>
-                  <p className={styles.authorName}>{r.name}</p>
-                  <p className={styles.authorProduct}>{r.product}</p>
+                  <p className={styles.authorName}>{rev.name}</p>
+                  <p className={styles.authorProduct}>{rev.product}</p>
                 </div>
               </div>
             </div>

@@ -1,15 +1,13 @@
 import { useState } from "react";
 import styles from "./OrderForm.module.css";
 import { PRODUCTS } from "../ProductList/ProductList";
+import { useLanguage } from "../../i18n/LanguageContext";
 
-const FEATURES = [
-  { icon: "🌿", text: "Натуральный состав без агрессивной химии" },
-  { icon: "📦", text: "Доставка по всей России" },
-  { icon: "💬", text: "Поддержка в WhatsApp 24/7" },
-  { icon: "✨", text: "Результат уже после первого применения" },
-];
+const FEATURE_ICONS = ["🌿", "📦", "💬", "✨"];
 
 export default function OrderForm({ selectedProduct, onSelectProduct }) {
+  const { t, lang } = useLanguage();
+  const o = t.order;
   const [form, setForm] = useState({ name: "", phone: "" });
   const [status, setStatus] = useState(null);
 
@@ -36,7 +34,7 @@ export default function OrderForm({ selectedProduct, onSelectProduct }) {
         body: JSON.stringify({ product: selectedProduct, ...form }),
       });
       const data = await res.json();
-      if (!res.ok) throw new Error(data.error || "Ошибка сервера");
+      if (!res.ok) throw new Error(data.error || "Server error");
       if (data.whatsappUrl) {
         window.location.href = data.whatsappUrl;
       }
@@ -52,17 +50,14 @@ export default function OrderForm({ selectedProduct, onSelectProduct }) {
       <div className={styles.inner}>
         {/* Left */}
         <div className={styles.info}>
-          <p className={styles.eyebrow}>Оформить заказ</p>
-          <h2 className={styles.title}>Сделайте первый шаг к сияющей коже</h2>
-          <p className={styles.desc}>
-            Заполните форму — мы свяжемся с вами в WhatsApp и подтвердим заказ в
-            течение нескольких минут.
-          </p>
+          <p className={styles.eyebrow}>{o.eyebrow}</p>
+          <h2 className={styles.title}>{o.title}</h2>
+          <p className={styles.desc}>{o.desc}</p>
           <div className={styles.features}>
-            {FEATURES.map((f) => (
-              <div key={f.text} className={styles.feature}>
-                <div className={styles.featureIcon}>{f.icon}</div>
-                <span>{f.text}</span>
+            {o.features.map((f, i) => (
+              <div key={i} className={styles.feature}>
+                <div className={styles.featureIcon}>{FEATURE_ICONS[i]}</div>
+                <span>{f}</span>
               </div>
             ))}
           </div>
@@ -70,53 +65,56 @@ export default function OrderForm({ selectedProduct, onSelectProduct }) {
 
         {/* Right — card form */}
         <div className={styles.card}>
-          <h3 className={styles.cardTitle}>Оформление заказа</h3>
+          <h3 className={styles.cardTitle}>{o.cardTitle}</h3>
 
           {/* Product picker */}
-          <p className={styles.pickerLabel}>Выберите маску</p>
+          <p className={styles.pickerLabel}>{o.pickerLabel}</p>
           <div className={styles.picker}>
-            {PRODUCTS.map((p) => (
-              <button
-                key={p.name}
-                type="button"
-                className={`${styles.pickerItem} ${
-                  selectedProduct === p.name ? styles.pickerItemActive : ""
-                }`}
-                onClick={() => onSelectProduct(p.name)}
-              >
-                <span className={styles.pickerBadge}>{p.badge}</span>
-                <div className={styles.pickerInfo}>
-                  <span className={styles.pickerName}>{p.name}</span>
-                  <span className={styles.pickerDesc}>{p.description}</span>
-                </div>
-                <span className={styles.pickerPrice}>{p.price}</span>
-                {selectedProduct === p.name && (
-                  <span className={styles.pickerCheck}>✓</span>
-                )}
-              </button>
-            ))}
+            {PRODUCTS.map((p) => {
+              const desc = t.productDesc[p.descKey];
+              return (
+                <button
+                  key={p.name}
+                  type="button"
+                  className={`${styles.pickerItem} ${
+                    selectedProduct === p.name ? styles.pickerItemActive : ""
+                  }`}
+                  onClick={() => onSelectProduct(p.name)}
+                >
+                  <span className={styles.pickerBadge}>{p.badge}</span>
+                  <div className={styles.pickerInfo}>
+                    <span className={styles.pickerName}>{p.name}</span>
+                    <span className={styles.pickerDesc}>{desc}</span>
+                  </div>
+                  <span className={styles.pickerPrice}>{p.price}</span>
+                  {selectedProduct === p.name && (
+                    <span className={styles.pickerCheck}>✓</span>
+                  )}
+                </button>
+              );
+            })}
           </div>
 
           <form onSubmit={handleSubmit}>
             <label className={styles.fieldLabel}>
-              Ваше имя
+              {o.nameLbl}
               <input
                 className={styles.input}
                 type="text"
                 name="name"
-                placeholder="Алина"
+                placeholder={o.namePlaceholder}
                 value={form.name}
                 onChange={handleChange}
                 required
               />
             </label>
             <label className={styles.fieldLabel}>
-              Телефон / WhatsApp
+              {o.phoneLbl}
               <input
                 className={styles.input}
                 type="tel"
                 name="phone"
-                placeholder="+7 900 000 00 00"
+                placeholder={o.phonePlaceholder}
                 value={form.phone}
                 onChange={handleChange}
                 required
@@ -127,15 +125,15 @@ export default function OrderForm({ selectedProduct, onSelectProduct }) {
               type="submit"
               disabled={status === "loading"}
             >
-              {status === "loading" ? "Отправка..." : "📲 Заказать через WhatsApp"}
+              {status === "loading" ? o.loading : o.submit}
             </button>
           </form>
 
           {status === "success" && (
-            <p className={styles.successMsg}>✓ Заявка отправлена! Проверьте WhatsApp.</p>
+            <p className={styles.successMsg}>{o.success}</p>
           )}
           {status === "error" && (
-            <p className={styles.errorMsg}>Ошибка отправки. Попробуйте ещё раз.</p>
+            <p className={styles.errorMsg}>{o.error}</p>
           )}
         </div>
       </div>

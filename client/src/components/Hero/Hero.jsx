@@ -1,6 +1,10 @@
 import styles from "./Hero.module.css";
+import { useLanguage } from "../../i18n/LanguageContext";
 
 export default function Hero({ onOrder }) {
+  const { t } = useLanguage();
+  const h = t.hero;
+
   return (
     <section className={styles.hero} id="hero">
       <div className={styles.inner}>
@@ -16,42 +20,39 @@ export default function Hero({ onOrder }) {
           <div className={styles.badge}>
             <span>✦</span> Shangareeva Lab
           </div>
-          <div className={styles.floatTag}>Натуральный состав</div>
+          <div className={styles.floatTag}>{h.floatTag}</div>
         </div>
 
         {/* Right — copy */}
         <div className={styles.copy}>
-          <p className={styles.eyebrow}>Уход за кожей нового поколения</p>
+          <p className={styles.eyebrow}>{h.eyebrow}</p>
           <h1 className={styles.heading}>
-            Маски,
+            {h.heading1}
             <br />
-            <em>после которых</em>
+            <em>{h.heading2}</em>
             <br />
-            не нужен крем
+            {h.heading3}
           </h1>
-          <p className={styles.desc}>
-            Профессиональная косметика на растительной основе. Глубокое
-            увлажнение, детокс и сияние — в одном ритуале.
-          </p>
+          <p className={styles.desc}>{h.desc}</p>
           <div className={styles.cta}>
             <button className={styles.btnSecondary} onClick={onOrder}>
-              Смотреть продукты
+              {h.btnViewProducts}
             </button>
           </div>
           <div className={styles.stats}>
             <div className={styles.stat}>
               <span className={styles.statNum}>3+</span>
-              <span className={styles.statLabel}>Маски</span>
+              <span className={styles.statLabel}>{h.statMasks}</span>
             </div>
             <div className={styles.divider} />
             <div className={styles.stat}>
               <span className={styles.statNum}>100%</span>
-              <span className={styles.statLabel}>Натурально</span>
+              <span className={styles.statLabel}>{h.statNatural}</span>
             </div>
             <div className={styles.divider} />
             <div className={styles.stat}>
               <span className={styles.statNum}>500+</span>
-              <span className={styles.statLabel}>Клиентов</span>
+              <span className={styles.statLabel}>{h.statClients}</span>
             </div>
           </div>
         </div>

@@ -1,0 +1,212 @@
+{
+  "ru": {
+    "nav": {
+      "home": "Главная",
+      "products": "Продукты",
+      "about": "О нас",
+      "contacts": "Контакты"
+    },
+    "hero": {
+      "eyebrow": "Уход за кожей нового поколения",
+      "heading1": "Маски,",
+      "heading2": "после которых",
+      "heading3": "не нужен крем",
+      "desc": "Профессиональная косметика на растительной основе. Глубокое увлажнение, детокс и сияние — в одном ритуале.",
+      "btnViewProducts": "Смотреть продукты",
+      "floatTag": "Натуральный состав",
+      "statMasks": "Маски",
+      "statNatural": "Натурально",
+      "statClients": "Клиентов"
+    },
+    "products": {
+      "eyebrow": "Наши продукты",
+      "title": "Выберите свою маску",
+      "subtitle": "Нажмите на карточку — узнайте всё о продукте и выберите подходящий вариант",
+      "more": "Подробнее"
+    },
+    "productDesc": {
+      "hydraCalmDesc": "Для сухой кожи",
+      "detoxPureDesc": "Для жирной кожи",
+      "sosRepairDesc": "Для проблемной кожи",
+      "sosClearProDesc": "При акне",
+      "glowRadianceDesc": "Для тусклой кожи"
+    },
+    "order": {
+      "eyebrow": "Оформить заказ",
+      "title": "Сделайте первый шаг к сияющей коже",
+      "desc": "Заполните форму — мы свяжемся с вами в WhatsApp и подтвердим заказ в течение нескольких минут.",
+      "features": [
+        "Натуральный состав без агрессивной химии",
+        "Доставка по всей Европе",
+        "Поддержка в WhatsApp 24/7",
+        "Результат уже после первого применения"
+      ],
+      "cardTitle": "Оформление заказа",
+      "pickerLabel": "Выберите маску",
+      "nameLbl": "Ваше имя",
+      "namePlaceholder": "Алина",
+      "phoneLbl": "Телефон / WhatsApp",
+      "phonePlaceholder": "+7 900 000 00 00",
+      "submit": "📲 Заказать через WhatsApp",
+      "loading": "Отправка...",
+      "success": "✓ Заявка отправлена! Проверьте WhatsApp.",
+      "error": "Ошибка отправки. Попробуйте ещё раз."
+    },
+    "reviews": {
+      "eyebrow": "Отзывы",
+      "title": "Что говорят клиенты"
+    },
+    "footer": {
+      "tagline": "Маски, после которых не нужен крем",
+      "navTitle": "Навигация",
+      "contactsTitle": "Контакты",
+      "copyright": "Все права защищены.",
+      "tagline2": "Натуральная косметика ручной работы",
+      "links": ["Продукты", "Отзывы", "Заказать", "О нас"]
+    },
+    "modal": {
+      "order": "Заказать —",
+      "close": "Закрыть"
+    }
+  },
+  "en": {
+    "nav": {
+      "home": "Home",
+      "products": "Products",
+      "about": "About",
+      "contacts": "Contacts"
+    },
+    "hero": {
+      "eyebrow": "Next generation skincare",
+      "heading1": "Masks",
+      "heading2": "that replace",
+      "heading3": "your moisturizer",
+      "desc": "Professional plant-based cosmetics. Deep hydration, detox and radiance — in one ritual.",
+      "btnViewProducts": "View products",
+      "floatTag": "Natural formula",
+      "statMasks": "Masks",
+      "statNatural": "Natural",
+      "statClients": "Clients"
+    },
+    "products": {
+      "eyebrow": "Our products",
+      "title": "Choose your mask",
+      "subtitle": "Click on the card to learn everything about the product and pick the right one",
+      "more": "Learn more"
+    },
+    "productDesc": {
+      "hydraCalmDesc": "For dry skin",
+      "detoxPureDesc": "For oily skin",
+      "sosRepairDesc": "For problem skin",
+      "sosClearProDesc": "For acne-prone skin",
+      "glowRadianceDesc": "For dull skin"
+    },
+    "order": {
+      "eyebrow": "Place an order",
+      "title": "Take the first step to glowing skin",
+      "desc": "Fill out the form — we will contact you on WhatsApp and confirm your order within minutes.",
+      "features": [
+        "Natural formula without harsh chemicals",
+        "Delivery across Europe",
+        "WhatsApp support 24/7",
+        "Results after the very first use"
+      ],
+      "cardTitle": "Order form",
+      "pickerLabel": "Choose a mask",
+      "nameLbl": "Your name",
+      "namePlaceholder": "Anna",
+      "phoneLbl": "Phone / WhatsApp",
+      "phonePlaceholder": "+46 700 000 000",
+      "submit": "📲 Order via WhatsApp",
+      "loading": "Sending...",
+      "success": "✓ Order sent! Check WhatsApp.",
+      "error": "Failed to send. Please try again."
+    },
+    "reviews": {
+      "eyebrow": "Reviews",
+      "title": "What our clients say"
+    },
+    "footer": {
+      "tagline": "Masks that replace your moisturizer",
+      "navTitle": "Navigation",
+      "contactsTitle": "Contacts",
+      "copyright": "All rights reserved.",
+      "tagline2": "Natural handmade cosmetics",
+      "links": ["Products", "Reviews", "Order", "About"]
+    },
+    "modal": {
+      "order": "Order —",
+      "close": "Close"
+    }
+  },
+  "tr": {
+    "nav": {
+      "home": "Ana Sayfa",
+      "products": "Ürünler",
+      "about": "Hakkımızda",
+      "contacts": "İletişim"
+    },
+    "hero": {
+      "eyebrow": "Yeni nesil cilt bakımı",
+      "heading1": "Nemlendirici",
+      "heading2": "gerektirmeyen",
+      "heading3": "maskeler",
+      "desc": "Bitki bazlı profesyonel kozmetik. Derin nemlendirme, detoks ve parlaklık — tek bir ritüelde.",
+      "btnViewProducts": "Ürünleri gör",
+      "floatTag": "Doğal formül",
+      "statMasks": "Maske",
+      "statNatural": "Doğal",
+      "statClients": "Müşteri"
+    },
+    "products": {
+      "eyebrow": "Ürünlerimiz",
+      "title": "Maskenizi seçin",
+      "subtitle": "Ürün hakkında her şeyi öğrenmek ve uygun olanı seçmek için karta tıklayın",
+      "more": "Daha fazla"
+    },
+    "productDesc": {
+      "hydraCalmDesc": "Kuru cilt için",
+      "detoxPureDesc": "Yağlı cilt için",
+      "sosRepairDesc": "Problemli cilt için",
+      "sosClearProDesc": "Akneli ciltler için",
+      "glowRadianceDesc": "Mat cilt için"
+    },
+    "order": {
+      "eyebrow": "Sipariş ver",
+      "title": "Parlak cilde giden ilk adımı atın",
+      "desc": "Formu doldurun — WhatsApp'tan sizinle iletişime geçeceğiz ve birkaç dakika içinde siparişinizi onaylayacağız.",
+      "features": [
+        "Agresif kimyasal içermeyen doğal formül",
+        "Avrupa genelinde teslimat",
+        "WhatsApp desteği 7/24",
+        "İlk kullanımdan sonra sonuç"
+      ],
+      "cardTitle": "Sipariş formu",
+      "pickerLabel": "Maske seçin",
+      "nameLbl": "Adınız",
+      "namePlaceholder": "Ayşe",
+      "phoneLbl": "Telefon / WhatsApp",
+      "phonePlaceholder": "+90 500 000 00 00",
+      "submit": "📲 WhatsApp ile sipariş ver",
+      "loading": "Gönderiliyor...",
+      "success": "✓ Sipariş gönderildi! WhatsApp'ı kontrol edin.",
+      "error": "Gönderilemedi. Lütfen tekrar deneyin."
+    },
+    "reviews": {
+      "eyebrow": "Yorumlar",
+      "title": "Müşterilerimiz ne diyor"
+    },
+    "footer": {
+      "tagline": "Nemlendirici gerektirmeyen maskeler",
+      "navTitle": "Gezinti",
+      "contactsTitle": "İletişim",
+      "copyright": "Tüm hakları saklıdır.",
+      "tagline2": "Doğal el yapımı kozmetik",
+      "links": ["Ürünler", "Yorumlar", "Sipariş", "Hakkımızda"]
+    },
+    "modal": {
+      "order": "Sipariş —",
+      "close": "Kapat"
+    }
+  }
+}
