@@ -51,7 +51,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://shangareevalab.netlify.app",
+      "https://hadiyaandlab.netlify.app",
       process.env.FRONTEND_URL,
     ].filter(Boolean),
     methods: ["GET", "POST", "PUT", "DELETE"],
